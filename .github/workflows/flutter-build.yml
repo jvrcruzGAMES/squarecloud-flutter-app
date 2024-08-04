@@ -25,7 +25,7 @@ jobs:
             - name: Archive production artifacts
               uses: actions/upload-artifact@v2
               with:
-                  name: squarecloudapp
+                  name: squarecloudapp.apk
                   path: build/app/outputs/flutter-apk/app-release.apk
     build-ios:
         runs-on: macos-latest
@@ -51,5 +51,5 @@ jobs:
             - name: Archive production artifacts
               uses: actions/upload-artifact@v2
               with:
-                    name: squarecloudapp
+                    name: squarecloudapp.ipa
                     path: build/ios/iphoneos/squarecloud.ipa
