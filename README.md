@@ -23,13 +23,19 @@ To build the Square Cloud Flutter App, follow these steps:
    ```sh
    flutter build apk
    ```
-   or for iOS:
+   or for iOS (macOS only):
    ```sh
-   flutter build ios
+   flutter build ipa --release --no-codesign
    ```
 
 ## Installation
-<!-- Add installation instructions here -->
+### iOS
+1. Get the .ipa file from GitHub Actions
+2. Install with your favorite sideloading software
+
+### Android
+1. Download the .apk file from GitHub Actions
+2. Install directly to your device
 
 ## License
 This project is licensed under the GPLv3.0 License. See the [`LICENSE`](LICENSE) file for details.
