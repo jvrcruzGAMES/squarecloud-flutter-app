@@ -22,11 +22,13 @@ jobs:
               run: flutter pub get
             - name: Build APK
               run: flutter build apk --release
+            - name: Rename APK
+              run: mv build/app/outputs/flutter-apk/app-release.apk build/app/outputs/flutter-apk/squarecloud.apk
             - name: Archive production artifacts
               uses: actions/upload-artifact@v2
               with:
-                  name: squarecloudapp.apk
-                  path: build/app/outputs/flutter-apk/app-release.apk
+                  name: squarecloud.apk
+                  path: build/app/outputs/flutter-apk/squarecloud.apk
     build-ios:
         runs-on: macos-latest
         steps:
@@ -51,5 +53,5 @@ jobs:
             - name: Archive production artifacts
               uses: actions/upload-artifact@v2
               with:
-                    name: squarecloudapp.ipa
+                    name: squarecloud.ipa
                     path: build/ios/iphoneos/squarecloud.ipa
