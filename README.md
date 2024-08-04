@@ -25,7 +25,7 @@ To build the Square Cloud Flutter App, follow these steps:
    ```
    or for iOS (macOS only):
    ```sh
-   flutter build ipa --release --no-codesign
+   flutter build ios --release
    ```
 
 ## Installation

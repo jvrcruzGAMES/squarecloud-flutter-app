@@ -38,7 +38,7 @@ jobs:
             - name: Install dependencies
               run: flutter pub get
             - name: Build iOS
-              run: flutter build ipa --release --no-codesign
+              run: flutter build ios --release --no-codesign
             - name: Archive production artifacts
               run: mkdir build/ios/iphoneos/Payload
             - name: Copy .app to Payload
