@@ -6,14 +6,14 @@ Square Cloud Flutter App is a modern, responsive application built using the Flu
 ## Build
 To build the Square Cloud Flutter App, follow these steps:
 
-1. Ensure you have Flutter installed on your machine. You can download it from the [official Flutter website](https://flutter.dev/docs/get-started/install).
+1. Ensure you have Flutter installed on your machine. You can download it from the [Flutter website](https://flutter.dev/docs/get-started/install).
 2. Clone the repository:
    ```sh
-   git clone https://github.com/yourusername/square-cloud-flutter-app.git
+   git clone https://github.com/jvrcruzGAMES/squarecloud-flutter-app.git
    ```
 3. Navigate to the project directory:
    ```sh
-   cd square-cloud-flutter-app
+   cd squarecloud-flutter-app
    ```
 4. Get the dependencies:
    ```sh
