@@ -1,7 +1,7 @@
 # Square Cloud Flutter App
 
-## Introduction
-Square Cloud Flutter App is a modern, responsive application built using the Flutter framework. It leverages the power of Dart to provide a seamless and efficient user experience. The app is designed to be scalable and maintainable, making it ideal for both small and large projects.
+## Information
+The unnoficial SquareCloud Flutter app for iOS and Android
 
 ## Build
 To build the Square Cloud Flutter App, follow these steps:
