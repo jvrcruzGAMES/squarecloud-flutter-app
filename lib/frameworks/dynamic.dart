@@ -212,7 +212,8 @@ class ConsoleWidget extends StatelessWidget {
 
   void updateConsole(String appId) async {
     controller.clear();
-    controller.print(message:  "Loading console for $appId", endline: true);
+    controller.print(message: "[SQUARE] Type help for commands", endline: true);
+    controller.print(message:  "[SQUARE] Loading console for $appId", endline: true);
     Session session = SameProcessStorage.read("session");
     SquareAPI api = session.getAPI();
     final response = await api.get("/v2/apps/$appId/logs");
@@ -222,10 +223,10 @@ class ConsoleWidget extends StatelessWidget {
         controller.print(message: log, endline: true);
       }
     } else {
-      controller.print(message: "Failed to load logs", endline: true);
+      controller.print(message: "[SQUARE] Failed to load logs, updating in 30 seconds", endline: true);
       print(response);
     }
-    await Future.delayed(const Duration(seconds: 10));
+    await Future.delayed(const Duration(seconds: 30));
     updateConsole(appId);
   }
 
@@ -271,7 +272,6 @@ class ConsoleWidget extends StatelessWidget {
     width =  MediaQuery.of(context).size.width;
     updateConsole(appID);
     commandListener(appID);
-    controller.print(message: "[SQUARE] Type help for commands", endline: true);
     return FlutterConsole(controller: controller, height: height, width: width);
   }
 }

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:squarecloud_app/frameworks/securestorage.dart';
 import 'package:squarecloud_app/frameworks/session.dart';
 import 'package:squarecloud_app/frameworks/upload.dart';
 import 'package:squarecloud_app/frameworks/varstore.dart';
@@ -110,26 +111,6 @@ class SquareCloudLoginPage extends StatelessWidget {
 }
 
 
-AppBar squareHomeAppBar = AppBar(
-  title: const Text('Square Cloud', style: TextStyle(color: Colors.white)),
-  backgroundColor: Colors.black,
-  foregroundColor: Colors.white,
-  actions: [
-    IconButton(
-      icon: const Icon(Icons.add),
-      onPressed: () {
-        UploadManager.selectFile().then((path) {
-          if (path != null) {
-            UploadManager.uploadApp(path).then((code) {
-              Fluttertoast.showToast(msg: "Attempt result: $code");
-            });
-          }
-        });
-      },
-    )
-  ],
-);
-
 
 class SquareCloudHomePage extends StatelessWidget {
   late final Session session;
@@ -145,7 +126,31 @@ class SquareCloudHomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: squareHomeAppBar,
+      appBar: AppBar(
+        title: const Text('Square Cloud', style: TextStyle(color: Colors.white)),
+        backgroundColor: Colors.black,
+        foregroundColor: Colors.white,
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.add),
+            onPressed: () {
+              UploadManager.selectFile().then((path) {
+                if (path != null) {
+                  UploadManager.uploadApp(path).then((code) {
+                    Fluttertoast.showToast(msg: "Attempt result: $code");
+                  });
+                }
+              });
+            },
+          ),
+          IconButton(onPressed: () {
+            SameProcessStorage.delete("session");
+            SecureStorage.delete("square_key").then((_) {
+              Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => SquareCloudLoginPage()));
+            });
+          }, icon: const Icon(Icons.logout))
+        ],
+      ),
       body: Center(
         child: appList,
       ),
