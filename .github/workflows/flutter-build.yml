@@ -44,11 +44,11 @@ jobs:
             - name: Archive production artifacts
               run: mkdir build/ios/iphoneos/Payload
             - name: Copy .app to Payload
-              run: cp -r build/ios/iphoneos/Runner.app build/ios/iphoneos/Payload
+              run: mv build/ios/iphoneos/Runner.app build/ios/iphoneos/Payload/Runner.app
             - name: Zip .app
               uses: vimtor/action-zip@v1.2
               with:
-                  files: build/ios/iphoneos/Payload
+                  files: build/ios/iphoneos/Payload/
                   dest: build/ios/iphoneos/squarecloud.ipa
             - name: Archive production artifacts
               uses: actions/upload-artifact@v2
