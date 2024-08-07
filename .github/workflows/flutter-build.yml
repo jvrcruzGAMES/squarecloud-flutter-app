@@ -41,8 +41,9 @@ jobs:
               run: flutter pub get
             - name: Build iOS
               run: flutter build ios --release --no-codesign
-            - name: Make Result Folders
+            - name: Make Result Folder
               run: mkdir build/ios/iphoneos/Result
+            - name: Make Payload Folder
               run: mkdir build/ios/iphoneos/Result/Payload
             - name: Copy .app to Payload folder
               run: mv build/ios/iphoneos/Runner.app build/ios/iphoneos/Result/Payload/Runner.app
