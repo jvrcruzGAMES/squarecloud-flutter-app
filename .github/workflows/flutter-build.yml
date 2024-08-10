@@ -47,13 +47,14 @@ jobs:
               run: mkdir build/ios/iphoneos/Result/Payload
             - name: Copy .app to Payload folder
               run: mv build/ios/iphoneos/Runner.app build/ios/iphoneos/Result/Payload/Runner.app
-            - name: Install Zip Lib
-              uses: montudor/action-zip@v1
-            - name: Zip .app to .ipa
-              run: zip -qq -r squarecloud.ipa Result/
-              working-directory: build/ios/iphoneos
+            - name: Zip Payload folder
+              uses: vimtor/action-zip@v1.2
+              with:
+                files: build/ios/iphoneos/Result/Payload
+                recursive: true
+                dest: build/ios/iphoneos/Result/squarecloud.ipa
             - name: Archive production artifacts
               uses: actions/upload-artifact@v2
               with:
                     name: squarecloud.ipa
-                    path: build/ios/iphoneos/squarecloud.ipa
+                    path: build/ios/iphoneos/Result/squarecloud.ipa
