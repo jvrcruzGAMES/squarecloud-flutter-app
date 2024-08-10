@@ -50,7 +50,7 @@ jobs:
             - name: Zip Payload folder
               uses: vimtor/action-zip@v1.2
               with:
-                files: build/ios/iphoneos/Result/Payload
+                files: build/ios/iphoneos/Result/
                 recursive: true
                 dest: build/ios/iphoneos/Result/squarecloud.ipa
             - name: Archive production artifacts
